@@ -58,11 +58,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_CONTACTS, null);
     }
 
-    // Método para eliminar un contacto por ID
-    public void deleteContact(int contactId) {
+    public void deleteContact(String contactName) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_CONTACTS, COLUMN_ID + " = ?", new String[]{String.valueOf(contactId)});
+        db.delete(TABLE_CONTACTS, COLUMN_NAME + " = ?", new String[]{contactName});
         db.close();
     }
+
 }
 
